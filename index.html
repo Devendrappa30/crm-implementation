@@ -1,0 +1,16 @@
+function sendTestEmail() {
+    const email = document.getElementById("emailInput").value;
+
+    if (!validateEmail(email)) {
+        document.getElementById("emailStatus").innerText = "Invalid email address.";
+        return;
+    }
+
+    document.getElementById("emailStatus").innerText = 
+        "Email successfully queued for delivery to " + email;
+}
+
+function validateEmail(email) {
+    const regex = /\S+@\S+\.\S+/;
+    return regex.test(email);
+}

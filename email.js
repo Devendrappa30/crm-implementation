@@ -1,16 +1,22 @@
-function logCall() {
-    const number = document.getElementById("callInput").value;
+console.log("Email module initialized - GCI-32");
 
-    if (!validatePhone(number)) {
-        document.getElementById("callStatus").innerText = "Invalid phone number.";
+function sendTestEmail() {
+    const email = document.getElementById("emailInput").value;
+
+    if (!validateEmail(email)) {
+        document.getElementById("emailStatus").innerText =
+            "Invalid email format. Please use example@domain.com";
         return;
     }
 
-    document.getElementById("callStatus").innerText =
-        "Call logged successfully for " + number;
+    // Simulate backend processing
+    setTimeout(() => {
+        document.getElementById("emailStatus").innerText =
+            "Email successfully queued for delivery to " + email;
+    }, 500);
 }
 
-function validatePhone(number) {
-    const regex = /^[0-9]{10}$/;
-    return regex.test(number);
+function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
 }

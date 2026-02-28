@@ -1,7 +1,5 @@
-console.log("Email module initialized - GCI-32");
-
 function sendTestEmail() {
-    const email = document.getElementById("emailInput").value;
+    let email = document.getElementById("emailInput").value.trim();
 
     if (!validateEmail(email)) {
         document.getElementById("emailStatus").innerText =
@@ -9,14 +7,8 @@ function sendTestEmail() {
         return;
     }
 
-    // Simulate backend processing
     setTimeout(() => {
         document.getElementById("emailStatus").innerText =
             "Email successfully queued for delivery to " + email;
     }, 500);
-}
-
-function validateEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
 }
